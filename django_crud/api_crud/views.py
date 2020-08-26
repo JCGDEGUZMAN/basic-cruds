@@ -8,6 +8,8 @@ from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
@@ -16,6 +18,9 @@ class genericAPIView(generics.GenericAPIView, mixins.ListModelMixin, mixins.Crea
     queryset = Subject.objects.all()
 
     lookup_field = 'id'
+    #authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, id=None):
 
