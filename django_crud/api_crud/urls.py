@@ -7,5 +7,4 @@ router.register('subject', SubjectViewset, basename='subject')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('<int:pk>/', include(router.urls)),
 ]

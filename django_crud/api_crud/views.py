@@ -14,7 +14,7 @@ from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
-class SubjectViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMixin, mixins.RetrieveModelMixin, mixins.DestroyModelMixin):
+class SubjectViewset(viewsets.ModelViewSet):
     
     serializer_class = SubjectSerializer
     queryset = Subject.objects.all()
