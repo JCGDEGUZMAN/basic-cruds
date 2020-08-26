@@ -1,7 +1,11 @@
 from django.urls import path, include
-from .views import genericAPIView
+from .views import SubjectViewset
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+router.register('subject', SubjectViewset, basename='subject')
 
 urlpatterns = [
-    path('subject/', genericAPIView.as_view()),
-    path('subject/<int:id>', genericAPIView.as_view()),
+    path('', include(router.urls)),
+    path('<int:pk>/', include(router.urls)),
 ]
