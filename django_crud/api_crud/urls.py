@@ -1,7 +1,7 @@
 from django.urls import path, include
-from .views import SubjectListAPIView, SubjectDetailAPIView
+from .views import genericAPIView
 
 urlpatterns = [
-    path('subject/', SubjectListAPIView.as_view()),
-    path('subject/<int:id>', SubjectDetailAPIView.as_view()),
+    path('subject/', genericAPIView.as_view()),
+    path('subject/<int:id>', genericAPIView.as_view()),
 ]
